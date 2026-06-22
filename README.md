@@ -127,14 +127,6 @@ export ANTHROPIC_API_KEY=your_key_here # Linux/Mac
 | Scalability | 15% | City-agnostic REST API, containerisable, designed for live data feed integration |
 | User Experience | 15% | Interactive map, one-click forecast, enforcement priority cards, conversational advisory |
 
----
-
-## Roadmap
-
-- **Phase 1 (now):** Prototype — 5 cities, simulated sensor feeds, full intelligence layer working
-- **Phase 2:** Live data integration — CPCB CAAQMS API, Sentinel-5P satellite, IMD meteorological feeds
-- **Phase 3:** PCB officer mobile app, WhatsApp advisory bot, 12 regional languages
-- **Phase 4:** National scale — 131 non-attainment cities under India's National Clean Air Programme
 
 ---
 
