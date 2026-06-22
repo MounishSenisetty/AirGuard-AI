@@ -6,3 +6,8 @@ __pycache__/
 venv/
 *.egg-info/
 .DS_Store
+node_modules/
+package.json
+package-lock.json
+make_docx.js
+*.docx
