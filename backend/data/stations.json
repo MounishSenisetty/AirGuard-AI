@@ -1,0 +1,19 @@
+[
+  {"id": "DEL001", "name": "Anand Vihar", "city": "Delhi", "lat": 28.6469, "lon": 77.3160, "zone": "Industrial", "population_density": 42000},
+  {"id": "DEL002", "name": "ITO", "city": "Delhi", "lat": 28.6280, "lon": 77.2410, "zone": "Commercial", "population_density": 28000},
+  {"id": "DEL003", "name": "RK Puram", "city": "Delhi", "lat": 28.5638, "lon": 77.1835, "zone": "Residential", "population_density": 35000},
+  {"id": "DEL004", "name": "Punjabi Bagh", "city": "Delhi", "lat": 28.6725, "lon": 77.1311, "zone": "Residential", "population_density": 31000},
+  {"id": "DEL005", "name": "Dwarka", "city": "Delhi", "lat": 28.5921, "lon": 77.0460, "zone": "Residential", "population_density": 22000},
+  {"id": "DEL006", "name": "Okhla Phase 2", "city": "Delhi", "lat": 28.5497, "lon": 77.2723, "zone": "Industrial", "population_density": 18000},
+  {"id": "MUM001", "name": "Bandra Kurla", "city": "Mumbai", "lat": 19.0596, "lon": 72.8656, "zone": "Commercial", "population_density": 38000},
+  {"id": "MUM002", "name": "Chembur", "city": "Mumbai", "lat": 19.0626, "lon": 72.8990, "zone": "Industrial", "population_density": 45000},
+  {"id": "MUM003", "name": "Worli", "city": "Mumbai", "lat": 18.9987, "lon": 72.8150, "zone": "Residential", "population_density": 52000},
+  {"id": "MUM004", "name": "Malad", "city": "Mumbai", "lat": 19.1870, "lon": 72.8480, "zone": "Residential", "population_density": 33000},
+  {"id": "BLR001", "name": "Hebbal", "city": "Bengaluru", "lat": 13.0358, "lon": 77.5970, "zone": "Mixed", "population_density": 27000},
+  {"id": "BLR002", "name": "Silk Board", "city": "Bengaluru", "lat": 12.9166, "lon": 77.6220, "zone": "Commercial", "population_density": 31000},
+  {"id": "BLR003", "name": "BTM Layout", "city": "Bengaluru", "lat": 12.9165, "lon": 77.6101, "zone": "Residential", "population_density": 42000},
+  {"id": "KOL001", "name": "Victoria", "city": "Kolkata", "lat": 22.5448, "lon": 88.3426, "zone": "Mixed", "population_density": 49000},
+  {"id": "KOL002", "name": "Jadavpur", "city": "Kolkata", "lat": 22.4975, "lon": 88.3714, "zone": "Industrial", "population_density": 36000},
+  {"id": "CHE001", "name": "Alandur", "city": "Chennai", "lat": 13.0031, "lon": 80.2072, "zone": "Mixed", "population_density": 29000},
+  {"id": "CHE002", "name": "Manali", "city": "Chennai", "lat": 13.1650, "lon": 80.2565, "zone": "Industrial", "population_density": 18000}
+]

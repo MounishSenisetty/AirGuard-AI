@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>AirGuard AI — Urban Air Quality Intelligence</title>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+  <link rel="stylesheet" href="/static/css/styles.css"/>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar">
+  <div class="nav-brand">
+    <i class="fas fa-wind"></i>
+    <span class="brand-name">AirGuard <span class="brand-ai">AI</span></span>
+    <span class="brand-sub">Urban Air Quality Intelligence</span>
+  </div>
+  <div class="nav-tabs">
+    <button class="nav-tab active" onclick="switchTab('dashboard')"><i class="fas fa-chart-line"></i> Live Dashboard</button>
+    <button class="nav-tab" onclick="switchTab('forecast')"><i class="fas fa-cloud-sun"></i> AQI Forecast</button>
+    <button class="nav-tab" onclick="switchTab('attribution')"><i class="fas fa-layer-group"></i> Source Attribution</button>
+    <button class="nav-tab" onclick="switchTab('enforcement')"><i class="fas fa-shield-alt"></i> Enforcement Intel</button>
+    <button class="nav-tab" onclick="switchTab('advisory')"><i class="fas fa-robot"></i> AI Advisory</button>
+  </div>
+  <div class="nav-status">
+    <span class="status-dot"></span>
+    <span id="lastUpdated">Live</span>
+  </div>
+</nav>
+
+<!-- ════════════════════ TAB: DASHBOARD ════════════════════ -->
+<div id="tab-dashboard" class="tab-content active">
+  <div class="dashboard-grid">
+
+    <!-- City Summary Cards -->
+    <div class="section-header">
+      <h2><i class="fas fa-city"></i> Multi-City Air Quality Overview</h2>
+      <button class="refresh-btn" onclick="loadDashboard()"><i class="fas fa-sync-alt"></i> Refresh</button>
+    </div>
+    <div id="cityCards" class="city-cards"></div>
+
+    <!-- Map + Stats Row -->
+    <div class="map-stats-row">
+      <div class="map-container">
+        <div class="section-label"><i class="fas fa-map-marked-alt"></i> Real-Time Station Map</div>
+        <div id="map"></div>
+        <div class="map-legend">
+          <span class="legend-item"><span class="dot" style="background:#00e400"></span> Good (0-50)</span>
+          <span class="legend-item"><span class="dot" style="background:#ffff00"></span> Satisfactory (51-100)</span>
+          <span class="legend-item"><span class="dot" style="background:#ff7e00"></span> Moderate (101-200)</span>
+          <span class="legend-item"><span class="dot" style="background:#ff0000"></span> Poor (201-300)</span>
+          <span class="legend-item"><span class="dot" style="background:#8f3f97"></span> Very Poor (301-400)</span>
+          <span class="legend-item"><span class="dot" style="background:#7e0023"></span> Severe (400+)</span>
+        </div>
+      </div>
+      <div class="stats-panel">
+        <div class="section-label"><i class="fas fa-chart-bar"></i> Pollutant Breakdown</div>
+        <canvas id="pollutantChart"></canvas>
+        <div class="section-label mt-2"><i class="fas fa-thermometer-half"></i> AQI by City</div>
+        <canvas id="cityAqiChart"></canvas>
+      </div>
+    </div>
+
+    <!-- Station Table -->
+    <div class="section-label mt-1"><i class="fas fa-table"></i> All Monitoring Stations</div>
+    <div class="table-container">
+      <table id="stationTable">
+        <thead>
+          <tr>
+            <th>Station</th><th>City</th><th>Zone</th><th>AQI</th>
+            <th>Category</th><th>PM2.5</th><th>PM10</th><th>NO₂</th><th>Actions</th>
+          </tr>
+        </thead>
+        <tbody id="stationTableBody"></tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+<!-- ════════════════════ TAB: FORECAST ════════════════════ -->
+<div id="tab-forecast" class="tab-content">
+  <div class="panel-container">
+    <div class="panel-header">
+      <h2><i class="fas fa-cloud-sun"></i> Hyperlocal AQI Forecasting Agent</h2>
+      <p class="panel-desc">72-hour predictive AQI model integrating meteorological forecasts, traffic patterns, and seasonal emission calendars at 1km grid resolution.</p>
+    </div>
+    <div class="forecast-controls">
+      <div class="control-group">
+        <label>Select Station</label>
+        <select id="forecastStation" onchange="loadForecast()"></select>
+      </div>
+      <div class="control-group">
+        <label>Forecast Horizon</label>
+        <select id="forecastHours" onchange="loadForecast()">
+          <option value="24">24 hours</option>
+          <option value="48">48 hours</option>
+          <option value="72" selected>72 hours</option>
+        </select>
+      </div>
+    </div>
+    <div id="forecastSummary" class="forecast-summary"></div>
+    <canvas id="forecastChart" style="max-height:360px;"></canvas>
+    <canvas id="pollutantForecastChart" style="max-height:260px; margin-top:20px;"></canvas>
+    <div id="forecastTable" class="forecast-table-container"></div>
+  </div>
+</div>
+
+<!-- ════════════════════ TAB: ATTRIBUTION ════════════════════ -->
+<div id="tab-attribution" class="tab-content">
+  <div class="panel-container">
+    <div class="panel-header">
+      <h2><i class="fas fa-layer-group"></i> Pollution Source Attribution Engine</h2>
+      <p class="panel-desc">Multi-modal AI agent attributing pollution by source category at ward/zone level using spatial-temporal pattern analysis, satellite thermal anomalies, and dispersion modelling.</p>
+    </div>
+    <div class="attribution-controls">
+      <div class="control-group">
+        <label>Select Station</label>
+        <select id="attributionStation" onchange="loadAttribution()"></select>
+      </div>
+    </div>
+    <div class="attribution-layout">
+      <div class="attribution-left">
+        <div id="attributionSummary" class="attribution-summary"></div>
+        <canvas id="attributionChart" style="max-height:320px;"></canvas>
+      </div>
+      <div class="attribution-right">
+        <div class="section-label"><i class="fas fa-map-pin"></i> Nearby Emission Sources</div>
+        <div id="nearbySourcesList" class="nearby-sources"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ════════════════════ TAB: ENFORCEMENT ════════════════════ -->
+<div id="tab-enforcement" class="tab-content">
+  <div class="panel-container">
+    <div class="panel-header">
+      <h2><i class="fas fa-shield-alt"></i> Enforcement Intelligence Agent</h2>
+      <p class="panel-desc">AI-prioritised enforcement recommendations correlating pollution hotspots, emission source risk profiles, inspection history, and live AQI data.</p>
+    </div>
+    <div class="enforcement-controls">
+      <div class="control-group">
+        <label>Filter by City</label>
+        <select id="enforcementCity" onchange="loadEnforcement()">
+          <option value="">All Cities</option>
+          <option value="Delhi">Delhi</option>
+          <option value="Mumbai">Mumbai</option>
+          <option value="Bengaluru">Bengaluru</option>
+          <option value="Kolkata">Kolkata</option>
+          <option value="Chennai">Chennai</option>
+        </select>
+      </div>
+      <div class="enforcement-stats" id="enforcementStats"></div>
+    </div>
+    <div id="enforcementList" class="enforcement-list"></div>
+  </div>
+</div>
+
+<!-- ════════════════════ TAB: AI ADVISORY ════════════════════ -->
+<div id="tab-advisory" class="tab-content">
+  <div class="panel-container">
+    <div class="panel-header">
+      <h2><i class="fas fa-robot"></i> AI Citizen Health Advisory</h2>
+      <p class="panel-desc">Claude-powered conversational health advisory generating personalised guidance in real-time based on current AQI conditions.</p>
+    </div>
+    <div class="advisory-layout">
+      <div class="advisory-config">
+        <div class="control-group">
+          <label>City</label>
+          <select id="advisoryCity">
+            <option value="Delhi">Delhi</option>
+            <option value="Mumbai">Mumbai</option>
+            <option value="Bengaluru">Bengaluru</option>
+            <option value="Kolkata">Kolkata</option>
+            <option value="Chennai">Chennai</option>
+          </select>
+        </div>
+        <div class="section-label mt-1"><i class="fas fa-bolt"></i> Quick Questions</div>
+        <div class="quick-questions">
+          <button onclick="askAdvisory('Is it safe to go for a morning run today?')">Morning run safety</button>
+          <button onclick="askAdvisory('Should my children go to school today?')">Children at school</button>
+          <button onclick="askAdvisory('Do I need to wear a mask outdoors?')">Mask recommendation</button>
+          <button onclick="askAdvisory('I have asthma — what precautions should I take?')">Asthma advice</button>
+          <button onclick="askAdvisory('Is it safe for outdoor workers today?')">Outdoor workers</button>
+          <button onclick="askAdvisory('When will the air quality improve today?')">Best time outdoors</button>
+        </div>
+      </div>
+      <div class="advisory-chat">
+        <div id="chatMessages" class="chat-messages">
+          <div class="chat-welcome">
+            <i class="fas fa-robot chat-bot-icon"></i>
+            <p>Hello! I'm AirGuard AI. Ask me about current air quality conditions, health precautions, or safe activity recommendations for your city.</p>
+          </div>
+        </div>
+        <div class="chat-input-row">
+          <input type="text" id="advisoryInput" placeholder="Ask about air quality health guidance..." onkeydown="if(event.key==='Enter')sendAdvisory()"/>
+          <button onclick="sendAdvisory()" class="send-btn"><i class="fas fa-paper-plane"></i></button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Loading Overlay -->
+<div id="loadingOverlay" class="loading-overlay hidden">
+  <div class="loading-spinner"><i class="fas fa-wind fa-spin"></i></div>
+</div>
+
+<!-- Station Detail Modal -->
+<div id="stationModal" class="modal hidden">
+  <div class="modal-content">
+    <div class="modal-header">
+      <h3 id="modalTitle">Station Details</h3>
+      <button onclick="closeModal()" class="modal-close"><i class="fas fa-times"></i></button>
+    </div>
+    <div id="modalBody" class="modal-body"></div>
+  </div>
+</div>
+
+<script src="/static/js/app.js"></script>
+</body>
+</html>

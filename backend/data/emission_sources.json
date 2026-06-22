@@ -1,0 +1,12 @@
+[
+  {"id": "ES001", "name": "Badarpur Thermal Plant (closed remnant zone)", "city": "Delhi", "lat": 28.4977, "lon": 77.3089, "type": "Industrial Stack", "risk_level": "high", "last_inspection": "2024-09-15"},
+  {"id": "ES002", "name": "Anand Vihar Transport Hub", "city": "Delhi", "lat": 28.6459, "lon": 77.3155, "type": "Vehicular", "risk_level": "high", "last_inspection": "2024-11-20"},
+  {"id": "ES003", "name": "Bhalswa Landfill", "city": "Delhi", "lat": 28.7456, "lon": 77.1600, "type": "Open Burning", "risk_level": "critical", "last_inspection": "2024-08-10"},
+  {"id": "ES004", "name": "Okhla Industrial Area", "city": "Delhi", "lat": 28.5500, "lon": 77.2700, "type": "Industrial Stack", "risk_level": "high", "last_inspection": "2024-10-05"},
+  {"id": "ES005", "name": "Wazirpur Industrial Area", "city": "Delhi", "lat": 28.6981, "lon": 77.1640, "type": "Industrial Stack", "risk_level": "medium", "last_inspection": "2024-12-01"},
+  {"id": "ES006", "name": "Chembur BPCL Refinery", "city": "Mumbai", "lat": 19.0620, "lon": 72.8980, "type": "Industrial Stack", "risk_level": "critical", "last_inspection": "2024-07-22"},
+  {"id": "ES007", "name": "Eastern Express Highway", "city": "Mumbai", "lat": 19.1000, "lon": 72.8900, "type": "Vehicular", "risk_level": "high", "last_inspection": "2024-10-15"},
+  {"id": "ES008", "name": "Manali Petrochemical Complex", "city": "Chennai", "lat": 13.1680, "lon": 80.2580, "type": "Industrial Stack", "risk_level": "critical", "last_inspection": "2024-06-30"},
+  {"id": "ES009", "name": "Outer Ring Road Construction Zone", "city": "Bengaluru", "lat": 13.0200, "lon": 77.6100, "type": "Construction Dust", "risk_level": "medium", "last_inspection": "2024-11-08"},
+  {"id": "ES010", "name": "Belgharia Expressway", "city": "Kolkata", "lat": 22.6200, "lon": 88.3800, "type": "Vehicular", "risk_level": "high", "last_inspection": "2024-09-25"}
+]
