@@ -14,6 +14,17 @@
   {"id": "BLR003", "name": "BTM Layout", "city": "Bengaluru", "lat": 12.9165, "lon": 77.6101, "zone": "Residential", "population_density": 42000},
   {"id": "KOL001", "name": "Victoria", "city": "Kolkata", "lat": 22.5448, "lon": 88.3426, "zone": "Mixed", "population_density": 49000},
   {"id": "KOL002", "name": "Jadavpur", "city": "Kolkata", "lat": 22.4975, "lon": 88.3714, "zone": "Industrial", "population_density": 36000},
+  {"id": "KOL003", "name": "Beliaghata", "city": "Kolkata", "lat": 22.5738, "lon": 88.3893, "zone": "Residential", "population_density": 41000},
   {"id": "CHE001", "name": "Alandur", "city": "Chennai", "lat": 13.0031, "lon": 80.2072, "zone": "Mixed", "population_density": 29000},
-  {"id": "CHE002", "name": "Manali", "city": "Chennai", "lat": 13.1650, "lon": 80.2565, "zone": "Industrial", "population_density": 18000}
+  {"id": "CHE002", "name": "Manali", "city": "Chennai", "lat": 13.1650, "lon": 80.2565, "zone": "Industrial", "population_density": 18000},
+  {"id": "CHE003", "name": "Velachery", "city": "Chennai", "lat": 12.9815, "lon": 80.2180, "zone": "Residential", "population_density": 34000},
+  {"id": "HYD001", "name": "Sanathnagar", "city": "Hyderabad", "lat": 17.4498, "lon": 78.4296, "zone": "Industrial", "population_density": 37000},
+  {"id": "HYD002", "name": "Somajiguda", "city": "Hyderabad", "lat": 17.4239, "lon": 78.4529, "zone": "Commercial", "population_density": 29000},
+  {"id": "HYD003", "name": "Nacharam", "city": "Hyderabad", "lat": 17.4062, "lon": 78.5493, "zone": "Industrial", "population_density": 22000},
+  {"id": "PUN001", "name": "Shivajinagar", "city": "Pune", "lat": 18.5362, "lon": 73.8465, "zone": "Commercial", "population_density": 33000},
+  {"id": "PUN002", "name": "Hadapsar", "city": "Pune", "lat": 18.5089, "lon": 73.9260, "zone": "Industrial", "population_density": 28000},
+  {"id": "PUN003", "name": "Pimpri", "city": "Pune", "lat": 18.6298, "lon": 73.7997, "zone": "Industrial", "population_density": 31000},
+  {"id": "AHM001", "name": "Maninagar", "city": "Ahmedabad", "lat": 22.9955, "lon": 72.6111, "zone": "Industrial", "population_density": 39000},
+  {"id": "AHM002", "name": "Bopal", "city": "Ahmedabad", "lat": 23.0321, "lon": 72.4682, "zone": "Residential", "population_density": 24000},
+  {"id": "AHM003", "name": "Vatva GIDC", "city": "Ahmedabad", "lat": 22.9550, "lon": 72.6453, "zone": "Industrial", "population_density": 17000}
 ]

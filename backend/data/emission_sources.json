@@ -1,5 +1,5 @@
 [
-  {"id": "ES001", "name": "Badarpur Thermal Plant (closed remnant zone)", "city": "Delhi", "lat": 28.4977, "lon": 77.3089, "type": "Industrial Stack", "risk_level": "high", "last_inspection": "2024-09-15"},
+  {"id": "ES001", "name": "Badarpur Thermal Plant (remnant zone)", "city": "Delhi", "lat": 28.4977, "lon": 77.3089, "type": "Industrial Stack", "risk_level": "high", "last_inspection": "2024-09-15"},
   {"id": "ES002", "name": "Anand Vihar Transport Hub", "city": "Delhi", "lat": 28.6459, "lon": 77.3155, "type": "Vehicular", "risk_level": "high", "last_inspection": "2024-11-20"},
   {"id": "ES003", "name": "Bhalswa Landfill", "city": "Delhi", "lat": 28.7456, "lon": 77.1600, "type": "Open Burning", "risk_level": "critical", "last_inspection": "2024-08-10"},
   {"id": "ES004", "name": "Okhla Industrial Area", "city": "Delhi", "lat": 28.5500, "lon": 77.2700, "type": "Industrial Stack", "risk_level": "high", "last_inspection": "2024-10-05"},
@@ -8,5 +8,12 @@
   {"id": "ES007", "name": "Eastern Express Highway", "city": "Mumbai", "lat": 19.1000, "lon": 72.8900, "type": "Vehicular", "risk_level": "high", "last_inspection": "2024-10-15"},
   {"id": "ES008", "name": "Manali Petrochemical Complex", "city": "Chennai", "lat": 13.1680, "lon": 80.2580, "type": "Industrial Stack", "risk_level": "critical", "last_inspection": "2024-06-30"},
   {"id": "ES009", "name": "Outer Ring Road Construction Zone", "city": "Bengaluru", "lat": 13.0200, "lon": 77.6100, "type": "Construction Dust", "risk_level": "medium", "last_inspection": "2024-11-08"},
-  {"id": "ES010", "name": "Belgharia Expressway", "city": "Kolkata", "lat": 22.6200, "lon": 88.3800, "type": "Vehicular", "risk_level": "high", "last_inspection": "2024-09-25"}
+  {"id": "ES010", "name": "Belgharia Expressway", "city": "Kolkata", "lat": 22.6200, "lon": 88.3800, "type": "Vehicular", "risk_level": "high", "last_inspection": "2024-09-25"},
+  {"id": "ES011", "name": "Sanathnagar Industrial Cluster", "city": "Hyderabad", "lat": 17.4510, "lon": 78.4250, "type": "Industrial Stack", "risk_level": "critical", "last_inspection": "2024-05-18"},
+  {"id": "ES012", "name": "Nacharam Pharmaceutical Zone", "city": "Hyderabad", "lat": 17.4080, "lon": 78.5460, "type": "Industrial Stack", "risk_level": "high", "last_inspection": "2024-08-30"},
+  {"id": "ES013", "name": "Pimpri-Chinchwad MIDC", "city": "Pune", "lat": 18.6320, "lon": 73.8050, "type": "Industrial Stack", "risk_level": "high", "last_inspection": "2024-09-12"},
+  {"id": "ES014", "name": "Hadapsar Industrial Estate", "city": "Pune", "lat": 18.5050, "lon": 73.9300, "type": "Industrial Stack", "risk_level": "medium", "last_inspection": "2024-11-05"},
+  {"id": "ES015", "name": "Vatva GIDC Chemical Zone", "city": "Ahmedabad", "lat": 22.9520, "lon": 72.6480, "type": "Industrial Stack", "risk_level": "critical", "last_inspection": "2024-04-20"},
+  {"id": "ES016", "name": "Naroda Industrial Area", "city": "Ahmedabad", "lat": 23.0800, "lon": 72.6400, "type": "Industrial Stack", "risk_level": "high", "last_inspection": "2024-07-15"},
+  {"id": "ES017", "name": "Dhapa Landfill", "city": "Kolkata", "lat": 22.5550, "lon": 88.4200, "type": "Open Burning", "risk_level": "critical", "last_inspection": "2024-06-10"}
 ]

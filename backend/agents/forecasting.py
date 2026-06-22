@@ -21,7 +21,10 @@ CITY_BASE_AQI = {
     "Mumbai": 115,
     "Kolkata": 145,
     "Bengaluru": 95,
-    "Chennai": 105
+    "Chennai": 105,
+    "Hyderabad": 120,
+    "Pune": 110,
+    "Ahmedabad": 155
 }
 
 ZONE_MULTIPLIERS = {

@@ -24,6 +24,7 @@
     <button class="nav-tab" onclick="switchTab('forecast')"><i class="fas fa-cloud-sun"></i> AQI Forecast</button>
     <button class="nav-tab" onclick="switchTab('attribution')"><i class="fas fa-layer-group"></i> Source Attribution</button>
     <button class="nav-tab" onclick="switchTab('enforcement')"><i class="fas fa-shield-alt"></i> Enforcement Intel</button>
+    <button class="nav-tab" onclick="switchTab('comparison')"><i class="fas fa-balance-scale"></i> City Comparison</button>
     <button class="nav-tab" onclick="switchTab('advisory')"><i class="fas fa-robot"></i> AI Advisory</button>
   </div>
   <div class="nav-status">
@@ -37,6 +38,11 @@
   <div class="dashboard-grid">
 
     <!-- City Summary Cards -->
+    <div id="alertsBanner" class="alerts-bar hidden">
+      <span class="alert-dot"></span>
+      <i class="fas fa-exclamation-triangle"></i>
+      <span id="alertsText"></span>
+    </div>
     <div class="section-header">
       <h2><i class="fas fa-city"></i> Multi-City Air Quality Overview</h2>
       <button class="refresh-btn" onclick="loadDashboard()"><i class="fas fa-sync-alt"></i> Refresh</button>
@@ -152,6 +158,9 @@
           <option value="Bengaluru">Bengaluru</option>
           <option value="Kolkata">Kolkata</option>
           <option value="Chennai">Chennai</option>
+          <option value="Hyderabad">Hyderabad</option>
+          <option value="Pune">Pune</option>
+          <option value="Ahmedabad">Ahmedabad</option>
         </select>
       </div>
       <div class="enforcement-stats" id="enforcementStats"></div>
@@ -177,6 +186,9 @@
             <option value="Bengaluru">Bengaluru</option>
             <option value="Kolkata">Kolkata</option>
             <option value="Chennai">Chennai</option>
+          <option value="Hyderabad">Hyderabad</option>
+          <option value="Pune">Pune</option>
+          <option value="Ahmedabad">Ahmedabad</option>
           </select>
         </div>
         <div class="section-label mt-1"><i class="fas fa-bolt"></i> Quick Questions</div>
@@ -204,6 +216,31 @@
     </div>
   </div>
 </div>
+
+<!-- ════════════════════ TAB: COMPARISON ════════════════════ -->
+<div id="tab-comparison" class="tab-content">
+  <div class="panel-container">
+    <div class="panel-header">
+      <h2><i class="fas fa-balance-scale"></i> Multi-City Air Quality Comparison</h2>
+      <p class="panel-desc">Compare AQI, pollutant levels, and source attribution patterns across all 8 monitored cities. Enables city administrators to benchmark performance and learn from interventions that worked elsewhere.</p>
+    </div>
+    <canvas id="comparisonBarChart" style="max-height:320px; margin-bottom:24px;"></canvas>
+    <div class="section-label"><i class="fas fa-th"></i> Pollutant Breakdown by City</div>
+    <div id="comparisonGrid" class="comparison-grid"></div>
+    <div class="section-label mt-1"><i class="fas fa-table"></i> City Rankings</div>
+    <div class="table-container" style="margin-top:10px;">
+      <table id="comparisonTable">
+        <thead>
+          <tr><th>Rank</th><th>City</th><th>Avg AQI</th><th>Category</th><th>Population (M)</th><th>Stations</th><th>Worst Station</th></tr>
+        </thead>
+        <tbody id="comparisonTableBody"></tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+<!-- Toast Notifications -->
+<div id="toastContainer" class="toast-container"></div>
 
 <!-- Loading Overlay -->
 <div id="loadingOverlay" class="loading-overlay hidden">

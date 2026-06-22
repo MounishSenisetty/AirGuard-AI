@@ -243,7 +243,7 @@ async def get_cities():
             "station_count": len(city_stations),
             "lat": round(lat, 4),
             "lon": round(lon, 4),
-            "population_millions": {"Delhi": 32.9, "Mumbai": 20.7, "Bengaluru": 13.2, "Kolkata": 14.9, "Chennai": 10.5}.get(city, 10)
+            "population_millions": {"Delhi": 32.9, "Mumbai": 20.7, "Bengaluru": 13.2, "Kolkata": 14.9, "Chennai": 10.5, "Hyderabad": 10.5, "Pune": 7.4, "Ahmedabad": 8.4}.get(city, 10)
         })
 
     city_data.sort(key=lambda x: x["avg_aqi"], reverse=True)
@@ -297,7 +297,7 @@ User question: {req.query}
 Provide a health advisory response."""
 
         message = client.messages.create(
-            model="claude-haiku-4-5-20251001",
+            model="claude-haiku-4-5",
             max_tokens=300,
             messages=[{"role": "user", "content": user_message}],
             system=system_prompt
